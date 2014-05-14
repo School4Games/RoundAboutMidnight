@@ -7,19 +7,14 @@ public class MouseZoomSystem : MonoBehaviour
     public float maxZoom = 90f;
     public float sensitivity = 15f;
 
-    private Camera mainCamera;
 
-    void Awake()
-    {
-        mainCamera = Camera.main;
-    }
 
     void Update()
     {
-        float zoom = mainCamera.fieldOfView;
-        zoom -= Input.GetAxis("Mouse ScrollWheel") * sensitivity;
-        zoom = Mathf.Clamp(zoom, minZoom, maxZoom);
-        mainCamera.fieldOfView = zoom;
+        //if(StartSystem.Instance.firstStart == false)
+        //{
+        //    mainCamera1 = Camera.main;
+        //    mainCamera1.fieldOfView = 10f;
+        //}
     }
-
 }

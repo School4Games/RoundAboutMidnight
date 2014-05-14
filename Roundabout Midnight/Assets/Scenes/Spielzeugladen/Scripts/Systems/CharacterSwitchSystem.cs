@@ -1,12 +1,18 @@
 ﻿using UnityEngine;
 using System.Collections.Generic;
+using System.Collections;
 using System;
 
 public class CharacterSwitchSystem : MonoBehaviour {
 
+    public ParticleSystem particleBall2, particleBall3, particleBall1;
+
     public CursorSystem cursorSystem;
 
     public GUIStyle selectedBoxStyle, unselectedBoxStyle;
+    public Shader unitLight;
+    public Shader diffuse;
+    public bool currently_light;
 
     public float clampRadius;
     public Vector2 mousePosition;
@@ -14,7 +20,19 @@ public class CharacterSwitchSystem : MonoBehaviour {
     public WeaponWheelButton currentlySelectedButton;
     public bool weaponWheelOpened;
 
+    void Awake()
+    {
+        unitLight = Shader.Find("Unlit/Transparent Cutout");
+        diffuse = Shader.Find("Diffuse");
+    }
+
     void Start()
+    {
+        StartCoroutine(ParticleBall1Wait());
+        BallListGUI();
+    }
+
+    void BallListGUI()
     {
         #region Button-adding
         WeaponWheelButton test1 = new WeaponWheelButton();
@@ -35,28 +53,71 @@ public class CharacterSwitchSystem : MonoBehaviour {
         test3.name = "Ball 3";
         test3.rect = new Rect(Screen.width / 2 - 250, Screen.height / 2 - 125, 100, 100);
         test3.OnClickButton += HandleOnClickButton3;
-
+        
         buttons.Add(test3);
+
         #endregion
     }
-
     void HandleOnClickButton(WeaponWheelButton me)
     {
         CharacterSwitchManager.Instance.ChangeCurrentPlayer(Player.GetPlayerByName(me.name));
+        if(!currently_light)
+            StartCoroutine(ParticleBall1Wait());
     }
+
     void HandleOnClickButton2(WeaponWheelButton me)
     {
         CharacterSwitchManager.Instance.ChangeCurrentPlayer(Player.GetPlayerByName(me.name));
+        if (!currently_light)
+            StartCoroutine(ParticleBall2Wait());
     }
     void HandleOnClickButton3(WeaponWheelButton me)
     {
-        CharacterSwitchManager.Instance.ChangeCurrentPlayer(Player.GetPlayerByName(me.name));
+        if(EnableBalls.Instance.enableBall3)
+        { 
+            CharacterSwitchManager.Instance.ChangeCurrentPlayer(Player.GetPlayerByName(me.name));
+            if (!currently_light)
+                StartCoroutine(ParticleBall3Wait());
+        }
+        else
+        {
+            EmotionSystem.instance.feeling = 1;
+            EmotionSystem.instance._showEmotion = true;
+        }
+    }
+
+    IEnumerator ParticleBall2Wait()
+    {
+        particleBall2.Play();
+        particleBall3.Stop();
+        particleBall1.Stop();
+        yield return new WaitForSeconds(1);
+        particleBall2.Stop();
+    }
+    IEnumerator ParticleBall3Wait()
+    {
+        particleBall3.Play();
+        particleBall1.Stop();
+        particleBall2.Stop();
+        yield return new WaitForSeconds(1);
+        particleBall3.Stop();
+    }
+    IEnumerator ParticleBall1Wait()
+    {
+        particleBall1.Play();
+        particleBall3.Stop();
+        particleBall2.Stop();
+        yield return new WaitForSeconds(1);
+        particleBall1.Stop();
     }
 
     void Update()
     {
+        SwitchPlayersAlpha();
+
         if (Input.GetMouseButtonDown(1))
         {
+            Time.timeScale = 0;
             weaponWheelOpened = true;
             cursorSystem.showOriginal = true;
             CharacterSwitchManager.Instance.smoothCameraMovementScript.enabled = false;
@@ -64,6 +125,7 @@ public class CharacterSwitchSystem : MonoBehaviour {
 
         if (Input.GetMouseButtonUp(1))
         {
+            Time.timeScale = 1;
             weaponWheelOpened = false;
             cursorSystem.showOriginal = false;
             CharacterSwitchManager.Instance.smoothCameraMovementScript.enabled = true;
@@ -122,6 +184,35 @@ public class CharacterSwitchSystem : MonoBehaviour {
                 }
             }
         }
+    }
+
+    void SwitchPlayersAlpha()
+    {
+        #region CharSwitchAlpha
+        if (Input.GetKeyDown(KeyCode.Alpha1))
+        {
+            CharacterSwitchManager.Instance.ChangeCurrentPlayer(Player.GetPlayerByName("Ball 1"));
+            StartCoroutine(ParticleBall1Wait());
+        }
+        if (Input.GetKeyDown(KeyCode.Alpha2))
+        {
+            CharacterSwitchManager.Instance.ChangeCurrentPlayer(Player.GetPlayerByName("Ball 2"));
+            StartCoroutine(ParticleBall2Wait());
+        }
+        if (Input.GetKeyDown(KeyCode.Alpha3))
+        {
+            if (EnableBalls.Instance.enableBall3)
+            {
+                CharacterSwitchManager.Instance.ChangeCurrentPlayer(Player.GetPlayerByName("Ball 3"));
+                StartCoroutine(ParticleBall3Wait());
+            }
+            else
+            {
+                EmotionSystem.instance.feeling = 1;
+                EmotionSystem.instance._showEmotion = true;
+            }
+        }
+        #endregion
     }
 }
 

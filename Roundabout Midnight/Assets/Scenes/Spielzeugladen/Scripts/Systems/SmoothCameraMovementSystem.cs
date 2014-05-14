@@ -3,52 +3,16 @@ using System.Collections;
 
 public class SmoothCameraMovementSystem : MonoBehaviour
 {
-    public Transform target;
-    public float distance = 10.0f;
+    public Transform target, camera;
 
-    public float xSpeed = 250.0f;
-    public float ySpeed = 120.0f;
+    public float smoothTime = 0.5F;
 
-    public float yMinLimit = -20;
-    public float yMaxLimit = 80;
-
-    private float x = 0.0f;
-    private float y = 0.0f;
-
-    void Start()
-    {
-        var angles = transform.eulerAngles;
-        x = angles.y;
-        y = angles.x;
-
-        if (rigidbody)
-            rigidbody.freezeRotation = true;
-    }
+    private float yVelocity = 0.0F;
 
     void Update()
     {
-        if (target)
-        {
-            //x += Input.GetAxis("Mouse X") * xSpeed * Time.deltaTime;
-            //y -= Input.GetAxis("Mouse Y") * ySpeed * Time.deltaTime;
-
-            y = ClampAngle(y, yMinLimit, yMaxLimit);
-
-            transform.rotation = Quaternion.Euler(y, x, 0);
-            transform.position = (Quaternion.Euler(y, x, 0)) * new Vector3(0.0f, 0.0f, -distance) + target.position;
-        }
-    }
-
-    static float ClampAngle(float angle, float min, float max)
-    {
-        if (angle < -360)
-        {
-            angle += 360;
-        }
-        if (angle > 360)
-        {
-            angle -= 360;
-        }
-        return Mathf.Clamp(angle, min, max);
+        float newPos = Mathf.Lerp(camera.position.x, target.position.x, 5.0f * Time.deltaTime);
+        float newPosY = Mathf.Lerp(camera.position.y, target.position.y +5, 5.0f * Time.deltaTime);
+        transform.position = new Vector3(newPos, newPosY, transform.position.z);
     }
 }

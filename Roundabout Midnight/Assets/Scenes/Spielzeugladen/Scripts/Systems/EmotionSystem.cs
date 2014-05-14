@@ -4,57 +4,46 @@ using System;
 
 public class EmotionSystem : MonoBehaviour {
 
-    public static EmotionSystem Instance;
+    public static EmotionSystem instance;
 
-    public GUIStyle emotionStyle;
-    public Emotion feeling;
-    public bool showEmotion = false;
+    public bool _showEmotion, _currentlyShowEmotion;
+    public Texture2D[] emotionTexture;
 
-    private int jumps;
-
-    public void ShowEmotion(Emotion newemotion)
-    {
-        if (showEmotion)
-            return;
-
-        feeling = newemotion;
-        StartCoroutine(WaitForEmotionSystem());
-    }
+    public int feeling;
+    /*
+     * 1 = scary
+     * 2 = happy
+     * */
 
     void Awake()
     {
-        Instance = this;
+        feeling = 0;
+        instance = this;
     }
 
     void Update()
     {
-        if(Input.GetKeyDown(KeyCode.Space))
+        if (feeling == 1 && _showEmotion && !_currentlyShowEmotion)
         {
-            jumps++;
+            StartCoroutine(WaitForShowEmotion());
+            EnableBalls.Instance.emotionBall3.renderer.material.mainTexture = emotionTexture[1];
         }
-        if(jumps == 3)
+
+        if (feeling == 2 && _showEmotion && !_currentlyShowEmotion)
         {
-            ShowEmotion(Emotion.Muede);
+            StartCoroutine(WaitForShowEmotion());
+            EnableBalls.Instance.emotionBall3.renderer.material.mainTexture = emotionTexture[2];
         }
     }
 
-    IEnumerator WaitForEmotionSystem()
+    IEnumerator WaitForShowEmotion()
     {
-        showEmotion = true;
+        EnableBalls.Instance.emotionBall3.SetActive(true);
+        _currentlyShowEmotion = true;
         yield return new WaitForSeconds(3);
-        showEmotion = false;
-        jumps = 0;
+        _showEmotion = false;
+        _currentlyShowEmotion = false;
+        EnableBalls.Instance.emotionBall3.SetActive(false);
     }
 
-
-}
-
-[Serializable]
-public enum Emotion
-{
-    Hungrig,
-    Muede
-    /*
-     * ...
-     * */
 }

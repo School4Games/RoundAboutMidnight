@@ -3,6 +3,8 @@ Microsoft Visual Studio Solution File, Format Version 11.00
 
 Project("{F64251C3-E6A8-8185-9590-D04EF93DAB13}") = "RoundAboutMidnight", "Assembly-CSharp-vs.csproj", "{ABF2EC91-9A77-C9B5-87FE-009CC330194D}"
 EndProject
+Project("{F64251C3-E6A8-8185-9590-D04EF93DAB13}") = "RoundAboutMidnight", "Assembly-CSharp-Editor-vs.csproj", "{95224135-4388-2F54-5075-283ED92388CC}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -13,11 +15,15 @@ Global
 		{ABF2EC91-9A77-C9B5-87FE-009CC330194D}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{ABF2EC91-9A77-C9B5-87FE-009CC330194D}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{ABF2EC91-9A77-C9B5-87FE-009CC330194D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{95224135-4388-2F54-5075-283ED92388CC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{95224135-4388-2F54-5075-283ED92388CC}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{95224135-4388-2F54-5075-283ED92388CC}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{95224135-4388-2F54-5075-283ED92388CC}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
 	EndGlobalSection
-																																																																																																																															GlobalSection(MonoDevelopProperties) = preSolution
+																																																																																																																																																																																																																																																				GlobalSection(MonoDevelopProperties) = preSolution
 		StartupItem = Assembly-CSharp.csproj
 		Policies = $0
 		$0.TextStylePolicy = $1

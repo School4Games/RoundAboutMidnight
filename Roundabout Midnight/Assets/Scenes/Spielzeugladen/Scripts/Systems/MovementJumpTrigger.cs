@@ -8,6 +8,8 @@ public class MovementJumpTrigger : MonoBehaviour
     {
         if(other.gameObject.tag == "BallJumpTrigger" && !MovementSystem.Instance.IsGrounded())
         {
+            Debug.Log("Test");
+
             if(transform.position.y > other.transform.position.y)
                 CharacterSwitchManager.Instance.currentPlayer.playerRigidbody.AddForce(0, 350, 0); 
         }
