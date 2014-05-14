@@ -24,6 +24,9 @@ public class MovementSystem : MonoBehaviour
 
     void Update()
     {
+        if (StartSystem.Instance.EnableIntroCamera)
+            return;
+
         if (Input.GetKey(KeyCode.Space) && IsGrounded() || Input.GetKey(KeyCode.W) && IsGrounded() || Input.GetKey(KeyCode.UpArrow) && IsGrounded())
         {
             CharacterSwitchManager.Instance.currentPlayer.playerRigidbody.velocity = new Vector3(CharacterSwitchManager.Instance.currentPlayer.playerRigidbody.velocity.x, CharacterSwitchManager.Instance.currentPlayer.jumpSpeed);

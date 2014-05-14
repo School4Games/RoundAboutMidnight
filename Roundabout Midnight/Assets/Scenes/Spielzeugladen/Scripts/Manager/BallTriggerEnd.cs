@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class EndTriggerScript : MonoBehaviour {
+public class BallTriggerEnd : MonoBehaviour {
 
     public GUIStyle txtEndeStyle;
     public bool _displayEnde = false;

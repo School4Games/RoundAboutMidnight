@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class CameraFlyingEmotion : MonoBehaviour {
+public class CameraFlyingEmotionManager : MonoBehaviour {
 
     void OnTriggerEnter(Collider other)
     {

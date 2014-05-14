@@ -47,22 +47,21 @@
   </ItemGroup>
   <ItemGroup>
      <Compile Include="Assets\Scenes\Spielzeugladen\Scripts\GUI\CheatConsoleGUI.cs" />
-     <Compile Include="Assets\Scenes\Spielzeugladen\Scripts\Manager\CameraFlyingEmotion.cs" />
+     <Compile Include="Assets\Scenes\Spielzeugladen\Scripts\Manager\BallTriggerEnd.cs" />
+     <Compile Include="Assets\Scenes\Spielzeugladen\Scripts\Manager\CameraFlyEndpoint.cs" />
+     <Compile Include="Assets\Scenes\Spielzeugladen\Scripts\Manager\CameraFlyingEmotionManager.cs" />
      <Compile Include="Assets\Scenes\Spielzeugladen\Scripts\Manager\CharacterSwitchManager.cs" />
      <Compile Include="Assets\Scenes\Spielzeugladen\Scripts\Manager\CheatConsoleManager.cs" />
      <Compile Include="Assets\Scenes\Spielzeugladen\Scripts\Manager\CollisionManager.cs" />
      <Compile Include="Assets\Scenes\Spielzeugladen\Scripts\Manager\EnableBalls.cs" />
-     <Compile Include="Assets\Scenes\Spielzeugladen\Scripts\Manager\EndCameraScript.cs" />
-     <Compile Include="Assets\Scenes\Spielzeugladen\Scripts\Manager\EndTriggerScript.cs" />
      <Compile Include="Assets\Scenes\Spielzeugladen\Scripts\Manager\FreezePosition.cs" />
-     <Compile Include="Assets\Scenes\Spielzeugladen\Scripts\Manager\MoveBookTrigger.cs" />
      <Compile Include="Assets\Scenes\Spielzeugladen\Scripts\Manager\MoveEndCube.cs" />
+     <Compile Include="Assets\Scenes\Spielzeugladen\Scripts\Manager\MoveObjectTriggerBall2.cs" />
      <Compile Include="Assets\Scenes\Spielzeugladen\Scripts\Manager\PressLightTrigger.cs" />
      <Compile Include="Assets\Scenes\Spielzeugladen\Scripts\Manager\SaveCollectionManager.cs" />
      <Compile Include="Assets\Scenes\Spielzeugladen\Scripts\Systems\CharacterSwitchSystem.cs" />
      <Compile Include="Assets\Scenes\Spielzeugladen\Scripts\Systems\CursorSystem.cs" />
      <Compile Include="Assets\Scenes\Spielzeugladen\Scripts\Systems\EmotionSystem.cs" />
-     <Compile Include="Assets\Scenes\Spielzeugladen\Scripts\Systems\MouseZoomSystem.cs" />
      <Compile Include="Assets\Scenes\Spielzeugladen\Scripts\Systems\MovementJumpTrigger.cs" />
      <Compile Include="Assets\Scenes\Spielzeugladen\Scripts\Systems\MovementSystem.cs" />
      <Compile Include="Assets\Scenes\Spielzeugladen\Scripts\Systems\SaveSystemXML.cs" />

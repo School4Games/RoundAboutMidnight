@@ -5,7 +5,7 @@ public class StartSystem : MonoBehaviour {
 
     public static StartSystem Instance;
 
-    public bool firstStart = true;
+    public bool EnableIntroCamera = true;
 
     public Camera mainCamera1;
     public Camera mainCamera2;

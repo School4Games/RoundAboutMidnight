@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class MoveBookTrigger : MonoBehaviour {
+public class MoveObjectTriggerBall2 : MonoBehaviour {
 
 
     void OnCollisionEnter(Collision collision)
