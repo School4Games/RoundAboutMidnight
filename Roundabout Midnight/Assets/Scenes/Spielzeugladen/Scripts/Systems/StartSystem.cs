@@ -25,7 +25,7 @@ public class StartSystem : MonoBehaviour {
     {
         if(mainCamera1.enabled && mainCamera1.fieldOfView != 10f)
         {
-            mainCamera1.fieldOfView = 10f;
+            mainCamera1.fieldOfView = 15f;
         }
     }
 }

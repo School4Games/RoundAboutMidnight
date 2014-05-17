@@ -115,26 +115,26 @@ public class CharacterSwitchSystem : MonoBehaviour {
     {
         SwitchPlayersAlpha();
 
-        if (Input.GetMouseButtonDown(1))
-        {
-            Time.timeScale = 0;
-            weaponWheelOpened = true;
-            cursorSystem.showOriginal = true;
-            CharacterSwitchManager.Instance.smoothCameraMovementScript.enabled = false;
-        }
+        //if (Input.GetMouseButtonDown(1))
+        //{
+        //    Time.timeScale = 0;
+        //    weaponWheelOpened = true;
+        //    cursorSystem.showOriginal = true;
+        //    CharacterSwitchManager.Instance.smoothCameraMovementScript.enabled = false;
+        //}
 
-        if (Input.GetMouseButtonUp(1))
-        {
-            Time.timeScale = 1;
-            weaponWheelOpened = false;
-            cursorSystem.showOriginal = false;
-            CharacterSwitchManager.Instance.smoothCameraMovementScript.enabled = true;
+        //if (Input.GetMouseButtonUp(1))
+        //{
+        //    Time.timeScale = 1;
+        //    weaponWheelOpened = false;
+        //    cursorSystem.showOriginal = false;
+        //    CharacterSwitchManager.Instance.smoothCameraMovementScript.enabled = true;
 
-            currentlySelectedButton.Click();
-        }
+        //    currentlySelectedButton.Click();
+        //}
 
-        if (Input.GetMouseButtonDown(1) && currentlySelectedButton != null)
-            currentlySelectedButton.Click();
+        //if (Input.GetMouseButtonDown(1) && currentlySelectedButton != null)
+        //    currentlySelectedButton.Click();
 
         if (!weaponWheelOpened)
             return;
@@ -186,9 +186,85 @@ public class CharacterSwitchSystem : MonoBehaviour {
         }
     }
 
+    public int[] _currplayerswitch;
+    public int _currplayerID;
+
     void SwitchPlayersAlpha()
     {
         #region CharSwitchAlpha
+
+        if(Input.GetKeyDown(KeyCode.Q))
+        {
+                switch(_currplayerID)
+                {
+                    case 0:
+                        _currplayerID += 1;
+                        break;
+
+                    case 1:
+                        CharacterSwitchManager.Instance.ChangeCurrentPlayer(Player.GetPlayerByName("Ball 1"));
+                        _currplayerID += 1;
+                    break;
+
+                    case 2:
+                        CharacterSwitchManager.Instance.ChangeCurrentPlayer(Player.GetPlayerByName("Ball 2"));
+                        _currplayerID += 1;
+                    break;
+
+                    case 3:
+                    if (EnableBalls.Instance.enableBall3)
+                    {
+                        CharacterSwitchManager.Instance.ChangeCurrentPlayer(Player.GetPlayerByName("Ball 3"));
+                        _currplayerID = 0;
+                        StartCoroutine(ParticleBall3Wait());
+                    }
+                    else
+                    {
+                        EmotionSystem.instance.feeling = 1;
+                        EmotionSystem.instance._showEmotion = true;
+                        _currplayerID -= 1;
+                        CharacterSwitchManager.Instance.ChangeCurrentPlayer(Player.GetPlayerByName("Ball 1"));
+                    }
+                    break;
+                }
+        }
+
+        if(Input.GetKeyDown(KeyCode.E))
+        {
+            switch (_currplayerID)
+            {
+                case 3:
+
+                    if (EnableBalls.Instance.enableBall3)
+                    {
+                        CharacterSwitchManager.Instance.ChangeCurrentPlayer(Player.GetPlayerByName("Ball 3"));
+                        _currplayerID -= 1;
+                        StartCoroutine(ParticleBall3Wait());
+                    }
+                    else
+                    {
+                        _currplayerID = 2;
+                        EmotionSystem.instance.feeling = 1;
+                        EmotionSystem.instance._showEmotion = true;
+                    }
+
+                    break;
+
+                case 2:
+                    CharacterSwitchManager.Instance.ChangeCurrentPlayer(Player.GetPlayerByName("Ball 2"));
+                    _currplayerID -= 1;
+                    break;
+
+                case 1:
+                    CharacterSwitchManager.Instance.ChangeCurrentPlayer(Player.GetPlayerByName("Ball 1"));
+                    _currplayerID += 1;
+                    break;
+
+                case 4:
+                    _currplayerID -= 1;
+                    break;
+            }
+        }
         if (Input.GetKeyDown(KeyCode.Alpha1))
         {
             CharacterSwitchManager.Instance.ChangeCurrentPlayer(Player.GetPlayerByName("Ball 1"));

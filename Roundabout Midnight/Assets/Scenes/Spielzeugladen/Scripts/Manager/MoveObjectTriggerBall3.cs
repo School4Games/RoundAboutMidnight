@@ -1,7 +1,8 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class MoveEndCube : MonoBehaviour {
+public class MoveObjectTriggerBall3 : MonoBehaviour
+{
 
     void OnCollisionEnter(Collision collision)
     {
