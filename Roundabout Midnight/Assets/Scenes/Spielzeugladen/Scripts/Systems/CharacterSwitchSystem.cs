@@ -244,6 +244,7 @@ public class CharacterSwitchSystem : MonoBehaviour {
                     else
                     {
                         _currplayerID = 2;
+                        CharacterSwitchManager.Instance.ChangeCurrentPlayer(Player.GetPlayerByName("Ball 2"));
                         EmotionSystem.instance.feeling = 1;
                         EmotionSystem.instance._showEmotion = true;
                     }
