@@ -9,6 +9,7 @@ public class EmotionSystem : MonoBehaviour {
     public bool _showEmotion, _currentlyShowEmotion;
     public Texture2D[] emotionTexture;
 
+
     public int feeling;
     /*
      * 1 = scary
@@ -26,13 +27,13 @@ public class EmotionSystem : MonoBehaviour {
         if (feeling == 1 && _showEmotion && !_currentlyShowEmotion)
         {
             StartCoroutine(WaitForShowEmotion());
-            EnableBalls.Instance.emotionBall3.renderer.material.mainTexture = emotionTexture[1];
+            //EnableBalls.Instance.emotionBall3.renderer.material.mainTexture = emotionTexture[1];
         }
 
         if (feeling == 2 && _showEmotion && !_currentlyShowEmotion)
         {
             StartCoroutine(WaitForShowEmotion());
-            EnableBalls.Instance.emotionBall3.renderer.material.mainTexture = emotionTexture[2];
+            //EnableBalls.Instance.emotionBall3.renderer.material.mainTexture = emotionTexture[2];
         }
     }
 
@@ -40,7 +41,7 @@ public class EmotionSystem : MonoBehaviour {
     {
         EnableBalls.Instance.emotionBall3.SetActive(true);
         _currentlyShowEmotion = true;
-        yield return new WaitForSeconds(3);
+        yield return new WaitForSeconds(3.9f);
         _showEmotion = false;
         _currentlyShowEmotion = false;
         EnableBalls.Instance.emotionBall3.SetActive(false);

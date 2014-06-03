@@ -34,6 +34,8 @@ public class Player
     public string name;
     public float speed;
     public float jumpSpeed;
+    public int jumpCount;
+    public int maxJump;
 
     public GameObject playerGameObject;
     public Transform playerTransform;

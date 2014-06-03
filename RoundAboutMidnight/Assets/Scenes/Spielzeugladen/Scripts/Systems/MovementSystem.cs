@@ -7,6 +7,7 @@ public class MovementSystem : MonoBehaviour
 
     public GameObject mainCamera;
     public bool canControl, instantStop, isJumping;
+    public int jumpCount = 0;
 
     private float tempX;
 
@@ -24,12 +25,18 @@ public class MovementSystem : MonoBehaviour
 
     void Update()
     {
+
         if (StartSystem.Instance.EnableIntroCamera)
             return;
 
-        if (Input.GetKey(KeyCode.Space) && IsGrounded() || Input.GetKey(KeyCode.W) && IsGrounded() || Input.GetKey(KeyCode.UpArrow) && IsGrounded())
+        if(IsGrounded())
+        {
+            CharacterSwitchManager.Instance.currentPlayer.jumpCount = 0;
+        }
+        if (Input.GetKeyDown(KeyCode.Space) && CharacterSwitchManager.Instance.currentPlayer.jumpCount < CharacterSwitchManager.Instance.currentPlayer.maxJump || Input.GetKey(KeyCode.W) && CharacterSwitchManager.Instance.currentPlayer.jumpCount < CharacterSwitchManager.Instance.currentPlayer.maxJump || Input.GetKey(KeyCode.UpArrow) && CharacterSwitchManager.Instance.currentPlayer.jumpCount < CharacterSwitchManager.Instance.currentPlayer.maxJump)
         {
             CharacterSwitchManager.Instance.currentPlayer.playerRigidbody.velocity = new Vector3(CharacterSwitchManager.Instance.currentPlayer.playerRigidbody.velocity.x, CharacterSwitchManager.Instance.currentPlayer.jumpSpeed);
+            CharacterSwitchManager.Instance.currentPlayer.jumpCount += 1;
         }
 
         if (Input.GetKey(KeyCode.D) || Input.GetKey(KeyCode.RightArrow))

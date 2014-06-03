@@ -3,15 +3,27 @@ using System.Collections;
 
 public class Collision_Manager : MonoBehaviour {
 
+    public static Collision_Manager Instance;
+
     public GameObject moveObjectCubeBall2;
     public GameObject moveObjectCubeBall3;
 
+
+    void Awake()
+    {
+        Instance = this;
+    }
 
     void OnCollisionEnter(Collision other)
     {
         if(other.gameObject.name == "Trampolin")
         {
-            CharacterSwitchManager.Instance.currentPlayer.playerRigidbody.velocity = new Vector3(CharacterSwitchManager.Instance.currentPlayer.playerRigidbody.velocity.x, 10);
+            if (TrampolinManager.Instance.activetrampoline)
+            {
+                CharacterSwitchManager.Instance.currentPlayer.playerRigidbody.velocity = new Vector3(CharacterSwitchManager.Instance.currentPlayer.playerRigidbody.velocity.x, 8);
+                Debug.Log("Test1");
+            }
+            Debug.Log("Test2");
         }
 
         if (other.gameObject.name == "moveObjectBall2")

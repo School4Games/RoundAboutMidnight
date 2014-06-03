@@ -58,6 +58,8 @@
      <Compile Include="Assets\Scenes\Spielzeugladen\Scripts\Manager\FreezePosition.cs" />
      <Compile Include="Assets\Scenes\Spielzeugladen\Scripts\Manager\PressLightTrigger.cs" />
      <Compile Include="Assets\Scenes\Spielzeugladen\Scripts\Manager\SaveCollectionManager.cs" />
+     <Compile Include="Assets\Scenes\Spielzeugladen\Scripts\Manager\TrampolinManager.cs" />
+     <Compile Include="Assets\Scenes\Spielzeugladen\Scripts\Manager\TriggerManager.cs" />
      <Compile Include="Assets\Scenes\Spielzeugladen\Scripts\Systems\CharacterSwitchSystem.cs" />
      <Compile Include="Assets\Scenes\Spielzeugladen\Scripts\Systems\CursorSystem.cs" />
      <Compile Include="Assets\Scenes\Spielzeugladen\Scripts\Systems\EmotionSystem.cs" />
