@@ -46,6 +46,7 @@
 	</Reference>
   </ItemGroup>
   <ItemGroup>
+     <Compile Include="Assets\Interface.cs" />
      <Compile Include="Assets\Scenes\Spielzeugladen\Scripts\GUI\CheatConsoleGUI.cs" />
      <Compile Include="Assets\Scenes\Spielzeugladen\Scripts\Manager\BallTriggerEnd.cs" />
      <Compile Include="Assets\Scenes\Spielzeugladen\Scripts\Manager\CameraFlyEndpoint.cs" />
@@ -56,6 +57,7 @@
      <Compile Include="Assets\Scenes\Spielzeugladen\Scripts\Manager\Collision_Manager.cs" />
      <Compile Include="Assets\Scenes\Spielzeugladen\Scripts\Manager\EnableBalls.cs" />
      <Compile Include="Assets\Scenes\Spielzeugladen\Scripts\Manager\FreezePosition.cs" />
+     <Compile Include="Assets\Scenes\Spielzeugladen\Scripts\Manager\MoveBridge.cs" />
      <Compile Include="Assets\Scenes\Spielzeugladen\Scripts\Manager\PressLightTrigger.cs" />
      <Compile Include="Assets\Scenes\Spielzeugladen\Scripts\Manager\SaveCollectionManager.cs" />
      <Compile Include="Assets\Scenes\Spielzeugladen\Scripts\Manager\TrampolinManager.cs" />

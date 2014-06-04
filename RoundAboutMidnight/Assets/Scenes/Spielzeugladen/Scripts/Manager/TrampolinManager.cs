@@ -14,7 +14,7 @@ public class TrampolinManager : MonoBehaviour {
 
 	void OnTriggerExit(Collider other)
     {
-        if (other.gameObject.name == "Car")
+        if (other.gameObject.name == "Car_small")
         {
             activetrampoline = true;
         }

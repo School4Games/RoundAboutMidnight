@@ -15,7 +15,7 @@ public class MovementSystem : MonoBehaviour
 
     public bool IsGrounded()
     {
-        return Physics.Raycast(CharacterSwitchManager.Instance.currentPlayer.playerTransform.position, -Vector3.up, CharacterSwitchManager.Instance.currentPlayer.PlayerCollider.collider.bounds.extents.y + 0.1f);
+        return Physics.Raycast(CharacterSwitchManager.Instance.currentPlayer.playerTransform.position, -Vector3.up, CharacterSwitchManager.Instance.currentPlayer.PlayerCollider.collider.bounds.extents.y + 0.01f);
     }
 
     void Awake()
@@ -35,8 +35,8 @@ public class MovementSystem : MonoBehaviour
         }
         if (Input.GetKeyDown(KeyCode.Space) && CharacterSwitchManager.Instance.currentPlayer.jumpCount < CharacterSwitchManager.Instance.currentPlayer.maxJump || Input.GetKey(KeyCode.W) && CharacterSwitchManager.Instance.currentPlayer.jumpCount < CharacterSwitchManager.Instance.currentPlayer.maxJump || Input.GetKey(KeyCode.UpArrow) && CharacterSwitchManager.Instance.currentPlayer.jumpCount < CharacterSwitchManager.Instance.currentPlayer.maxJump)
         {
+            CharacterSwitchManager.Instance.currentPlayer.jumpCount++;
             CharacterSwitchManager.Instance.currentPlayer.playerRigidbody.velocity = new Vector3(CharacterSwitchManager.Instance.currentPlayer.playerRigidbody.velocity.x, CharacterSwitchManager.Instance.currentPlayer.jumpSpeed);
-            CharacterSwitchManager.Instance.currentPlayer.jumpCount += 1;
         }
 
         if (Input.GetKey(KeyCode.D) || Input.GetKey(KeyCode.RightArrow))
