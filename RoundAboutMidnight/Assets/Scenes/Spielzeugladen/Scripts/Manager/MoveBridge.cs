@@ -29,7 +29,6 @@ public class MoveBridge : MonoBehaviour {
     }
     IEnumerator WaitforFall()
     {
-        Debug.Log("Before Waiting 2 seconds");
         yield return new WaitForSeconds(0.5f);
         moveBridgeObject.transform.rigidbody.mass = 500f;
     }
