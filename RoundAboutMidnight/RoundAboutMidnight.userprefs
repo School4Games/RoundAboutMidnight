@@ -1,0 +1,18 @@
+﻿<Properties>
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\Scenes\Spielzeugladen\Scripts\Manager\PressLightTrigger.cs">
+    <Files>
+      <File FileName="Assets\Scenes\Spielzeugladen\Scripts\Manager\Collision_Manager.cs" Line="45" Column="69" />
+      <File FileName="Assets\Scenes\Spielzeugladen\Scripts\Manager\PressLightTrigger.cs" Line="19" Column="53" />
+      <File FileName="Assets\Scenes\Spielzeugladen\Scripts\Manager\TriggerManager.cs" Line="1" Column="1" />
+      <File FileName="Assets\Scenes\Spielzeugladen\Scripts\Manager\BallTriggerEnd.cs" Line="1" Column="1" />
+      <File FileName="Assets\Scenes\Spielzeugladen\Scripts\Systems\EmotionSystem.cs" Line="1" Column="1" />
+      <File FileName="Assets\Scenes\Spielzeugladen\Scripts\Manager\TrampolinManager.cs" Line="1" Column="1" />
+      <File FileName="Assets\Scenes\Spielzeugladen\Scripts\Manager\SaveCollectionManager.cs" Line="1" Column="1" />
+    </Files>
+  </MonoDevelop.Ide.Workbench>
+  <MonoDevelop.Ide.DebuggingService.Breakpoints>
+    <BreakpointStore />
+  </MonoDevelop.Ide.DebuggingService.Breakpoints>
+  <MonoDevelop.Ide.DebuggingService.PinnedWatches />
+</Properties>

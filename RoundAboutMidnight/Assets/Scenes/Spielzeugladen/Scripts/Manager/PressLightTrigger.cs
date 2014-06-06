@@ -5,7 +5,7 @@ public class PressLightTrigger : MonoBehaviour {
 
     public GameObject[] lightObject;
 
-    void OnTriggerEnter(Collider collider)
+    void OnCollisionEnter(Collision collider)
     {
         if (collider.gameObject.CompareTag("BallJumpTrigger"))
         {
@@ -17,7 +17,8 @@ public class PressLightTrigger : MonoBehaviour {
             EmotionSystem.instance.feeling = 2;
             EmotionSystem.instance._showEmotion = true;
             EnableBalls.Instance.enableBall3 = true;
-            Destroy(this.gameObject);
+
+			Debug.Log("Du hast mich geweckt");
         }
     }
 }
