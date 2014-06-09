@@ -15,6 +15,10 @@ public class Collision_Manager : MonoBehaviour {
     public GameObject moveBrdigeClosed;
     public GameObject moveBridgeOpen;
 
+    public bool moveBrideGoOpen = false;
+    public bool moveBrideGoClose = false;
+    public float brideMoveSpeed = 0.2f;
+
     public bool pressed;
 
 
@@ -33,11 +37,26 @@ public class Collision_Manager : MonoBehaviour {
         {
             if (CharacterSwitchManager.Instance.currentPlayer.name != "Ball 1")
             {
-                moveBridge.transform.position = moveBrdigeClosed.transform.position;
-                moveBridge.transform.rotation = moveBrdigeClosed.transform.rotation;
+                moveBrideGoOpen = false;
+                moveBrideGoClose = true;
                 pressed = false;
             }
             Debug.Log("Test2");
+        }
+    }
+
+    void OnTriggerEnter(Collider other)
+    {
+        if (other.gameObject.name == "Trampolin_Cam")
+        {
+            SmoothCameraMovementSystem.instance.activeCam = false;
+        }
+    }
+    void OnTriggerExit(Collider other)
+    {
+        if(other.gameObject.name == "Trampolin_Cam")
+        {
+            StartCoroutine(WaitForActiveCam());
         }
     }
 
@@ -46,8 +65,7 @@ public class Collision_Manager : MonoBehaviour {
         if(other.gameObject.name == "Trampolin")
         {
 
-            CharacterSwitchManager.Instance.currentPlayer.playerRigidbody.velocity = new Vector3(CharacterSwitchManager.Instance.currentPlayer.playerRigidbody.velocity.x, 12);
-            Debug.Log("Test1");
+            CharacterSwitchManager.Instance.currentPlayer.playerRigidbody.velocity = new Vector3(CharacterSwitchManager.Instance.currentPlayer.playerRigidbody.velocity.x, 9);
         }
 
         if (other.gameObject.name == "moveObjectBall2")
@@ -86,11 +104,11 @@ public class Collision_Manager : MonoBehaviour {
         {
             if(CharacterSwitchManager.Instance.currentPlayer.name != "Ball 1")
             {
-                moveBridge.transform.position = moveBridgeOpen.transform.position;
-                moveBridge.transform.rotation = moveBridgeOpen.transform.rotation;
+                moveBrideGoClose = false;
+                moveBrideGoOpen = true;
+
                 pressed = true;
             }
-            Debug.Log(CharacterSwitchManager.Instance.currentPlayer.name + " befindet sich auf der Platte");
         }
     }
 
@@ -116,5 +134,24 @@ public class Collision_Manager : MonoBehaviour {
             moveObjectCubeBall3.transform.rigidbody.mass = 500f;
         }*/
 
+        if(moveBrideGoOpen)
+        {
+            moveBridge.transform.rotation = Quaternion.Lerp(moveBridge.transform.rotation, moveBridgeOpen.transform.rotation, Time.deltaTime * brideMoveSpeed);
+            moveBridge.transform.position = Vector3.Lerp(moveBridge.transform.position, moveBridgeOpen.transform.position, Time.deltaTime * brideMoveSpeed); 
+        }
+        if(moveBrideGoClose)
+        {
+            moveBridge.transform.rotation = Quaternion.Lerp(moveBridge.transform.rotation, moveBrdigeClosed.transform.rotation, Time.deltaTime * brideMoveSpeed);
+            moveBridge.transform.position = Vector3.Lerp(moveBridge.transform.position, moveBrdigeClosed.transform.position, Time.deltaTime * brideMoveSpeed); 
+        }
+        
+
     }
+    IEnumerator WaitForActiveCam()
+    {
+        SmoothCameraMovementSystem.instance.activeCam = false;
+        yield return new WaitForSeconds(1);
+        SmoothCameraMovementSystem.instance.activeCam = true;
+    }
+    
 }
