@@ -30,8 +30,14 @@ public class ArrayIndexes {
 }
 
 public class iTweenEvent : MonoBehaviour{
+
+    public static iTweenEvent instance;
 	public const string VERSION = "0.6.1";
 	
+    public void Awake()
+    {
+        instance = this;
+    }
 	public enum TweenType {
 		AudioFrom,
 		AudioTo,

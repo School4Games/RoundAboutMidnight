@@ -29,10 +29,16 @@ public class MovementSystem : MonoBehaviour
         if (StartSystem.Instance.EnableIntroCamera)
             return;
 
+        if(CharacterSwitchManager.Instance.currentPlayer.canControl == false)
+        {
+            return;
+        }
+
         if(IsGrounded())
         {
             CharacterSwitchManager.Instance.currentPlayer.jumpCount = 0;
         }
+
         if (Input.GetKeyDown(KeyCode.Space) && CharacterSwitchManager.Instance.currentPlayer.jumpCount < CharacterSwitchManager.Instance.currentPlayer.maxJump || Input.GetKey(KeyCode.W) && CharacterSwitchManager.Instance.currentPlayer.jumpCount < CharacterSwitchManager.Instance.currentPlayer.maxJump || Input.GetKey(KeyCode.UpArrow) && CharacterSwitchManager.Instance.currentPlayer.jumpCount < CharacterSwitchManager.Instance.currentPlayer.maxJump)
         {
             CharacterSwitchManager.Instance.currentPlayer.jumpCount++;

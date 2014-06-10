@@ -36,6 +36,7 @@ public class Player
     public float jumpSpeed;
     public int jumpCount;
     public int maxJump;
+    public bool canControl;
 
     public GameObject playerGameObject;
     public Transform playerTransform;

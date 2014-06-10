@@ -49,14 +49,14 @@ public class Collision_Manager : MonoBehaviour {
     {
         if (other.gameObject.name == "Trampolin_Cam")
         {
-            SmoothCameraMovementSystem.instance.activeCam = false;
+            
         }
     }
     void OnTriggerExit(Collider other)
     {
         if(other.gameObject.name == "Trampolin_Cam")
         {
-            StartCoroutine(WaitForActiveCam());
+            
         }
     }
 
@@ -66,6 +66,8 @@ public class Collision_Manager : MonoBehaviour {
         {
 
             CharacterSwitchManager.Instance.currentPlayer.playerRigidbody.velocity = new Vector3(CharacterSwitchManager.Instance.currentPlayer.playerRigidbody.velocity.x, 9);
+            SmoothCameraMovementSystem.instance.activeCam = false;
+            StartCoroutine(WaitForActiveCam());
         }
 
         if (other.gameObject.name == "moveObjectBall2")
@@ -106,7 +108,7 @@ public class Collision_Manager : MonoBehaviour {
             {
                 moveBrideGoClose = false;
                 moveBrideGoOpen = true;
-
+                            
                 pressed = true;
             }
         }
@@ -128,11 +130,11 @@ public class Collision_Manager : MonoBehaviour {
         {
             moveCarObjectBig.transform.rigidbody.mass = 500f;
         }
-        // Spieler3
-        if (CharacterSwitchManager.Instance.currentPlayer.name != "Ball 3" && moveObjectCubeBall2.transform.rigidbody.mass < 500f)
+        // Spieler3*/
+        if (CharacterSwitchManager.Instance.currentPlayer.name != "Ball 3" && moveObjectCubeBall3.transform.rigidbody.mass < 500f)
         {
             moveObjectCubeBall3.transform.rigidbody.mass = 500f;
-        }*/
+        }
 
         if(moveBrideGoOpen)
         {
@@ -150,7 +152,7 @@ public class Collision_Manager : MonoBehaviour {
     IEnumerator WaitForActiveCam()
     {
         SmoothCameraMovementSystem.instance.activeCam = false;
-        yield return new WaitForSeconds(1);
+        yield return new WaitForSeconds(0.1f);
         SmoothCameraMovementSystem.instance.activeCam = true;
     }
     

@@ -48,11 +48,14 @@
   <ItemGroup>
      <Compile Include="Assets\Interface.cs" />
      <Compile Include="Assets\Scenes\Spielzeugladen\Scripts\GUI\CheatConsoleGUI.cs" />
+     <Compile Include="Assets\Scenes\Spielzeugladen\Scripts\Manager\AnimationManager.cs" />
      <Compile Include="Assets\Scenes\Spielzeugladen\Scripts\Manager\BallTriggerEnd.cs" />
      <Compile Include="Assets\Scenes\Spielzeugladen\Scripts\Manager\CameraFlyEndpoint.cs" />
      <Compile Include="Assets\Scenes\Spielzeugladen\Scripts\Manager\CameraFlyingEmotionManager.cs" />
+     <Compile Include="Assets\Scenes\Spielzeugladen\Scripts\Manager\CameraIntroStop.cs" />
      <Compile Include="Assets\Scenes\Spielzeugladen\Scripts\Manager\CharacterSwitchManager.cs" />
      <Compile Include="Assets\Scenes\Spielzeugladen\Scripts\Manager\CheatConsoleManager.cs" />
+     <Compile Include="Assets\Scenes\Spielzeugladen\Scripts\Manager\CheckEmotionPosition.cs" />
      <Compile Include="Assets\Scenes\Spielzeugladen\Scripts\Manager\CollisionManager.cs" />
      <Compile Include="Assets\Scenes\Spielzeugladen\Scripts\Manager\Collision_Manager.cs" />
      <Compile Include="Assets\Scenes\Spielzeugladen\Scripts\Manager\EnableBalls.cs" />

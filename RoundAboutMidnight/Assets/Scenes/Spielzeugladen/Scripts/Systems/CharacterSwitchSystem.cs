@@ -83,6 +83,7 @@ public class CharacterSwitchSystem : MonoBehaviour {
         {
             EmotionSystem.instance.feeling = 1;
             EmotionSystem.instance._showEmotion = true;
+            
         }
     }
 
@@ -223,7 +224,8 @@ public class CharacterSwitchSystem : MonoBehaviour {
                         EmotionSystem.instance.feeling = 1;
                         EmotionSystem.instance._showEmotion = true;
                         _currplayerID -= 1;
-                        CharacterSwitchManager.Instance.ChangeCurrentPlayer(Player.GetPlayerByName("Ball 1"));
+                        CharacterSwitchManager.Instance.ChangeCurrentPlayer(Player.GetPlayerByName("Ball 3"));
+                        CharacterSwitchManager.Instance.currentPlayer.canControl = false;
                     }
                     break;
                 }
@@ -243,10 +245,12 @@ public class CharacterSwitchSystem : MonoBehaviour {
                     }
                     else
                     {
-                        _currplayerID = 2;
-                        CharacterSwitchManager.Instance.ChangeCurrentPlayer(Player.GetPlayerByName("Ball 2"));
+                        
                         EmotionSystem.instance.feeling = 1;
                         EmotionSystem.instance._showEmotion = true;
+                        CharacterSwitchManager.Instance.ChangeCurrentPlayer(Player.GetPlayerByName("Ball 3"));
+                        CharacterSwitchManager.Instance.currentPlayer.canControl = false;
+                        _currplayerID -= 1;
                     }
 
                     break;
@@ -287,6 +291,8 @@ public class CharacterSwitchSystem : MonoBehaviour {
             {
                 EmotionSystem.instance.feeling = 1;
                 EmotionSystem.instance._showEmotion = true;
+                CharacterSwitchManager.Instance.ChangeCurrentPlayer(Player.GetPlayerByName("Ball 3"));
+                CharacterSwitchManager.Instance.currentPlayer.canControl = false;
             }
         }
         #endregion

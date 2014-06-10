@@ -32,7 +32,7 @@ public class EmotionSystem : MonoBehaviour {
 
         if (feeling == 2 && _showEmotion && !_currentlyShowEmotion)
         {
-            StartCoroutine(WaitForShowEmotion());
+            StartCoroutine(WaitForShowEmotionShock());
             //EnableBalls.Instance.emotionBall3.renderer.material.mainTexture = emotionTexture[2];
         }
     }
@@ -45,6 +45,15 @@ public class EmotionSystem : MonoBehaviour {
         _showEmotion = false;
         _currentlyShowEmotion = false;
         EnableBalls.Instance.emotionBall3.SetActive(false);
+    }
+    IEnumerator WaitForShowEmotionShock()
+    {
+        EnableBalls.Instance.emotionBall3_shock.SetActive(true);
+        _currentlyShowEmotion = true;
+        yield return new WaitForSeconds(3.9f);
+        _showEmotion = false;
+        _currentlyShowEmotion = false;
+        EnableBalls.Instance.emotionBall3_shock.SetActive(false);
     }
 
 }
