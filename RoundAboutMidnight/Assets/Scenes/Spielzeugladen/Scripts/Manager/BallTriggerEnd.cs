@@ -6,12 +6,29 @@ public class BallTriggerEnd : MonoBehaviour {
     public GUIStyle txtEndeStyle;
     public bool _displayEnde = false;
 
+    public GameObject ball1, ball2, goal1,goal2;
+    public bool _setPosition = false;
+  
     void OnTriggerEnter(Collider col)
     {
         if(col.gameObject.CompareTag("BallJumpTrigger"))
         {
-            Time.timeScale = 0;
             _displayEnde = true;
+        }
+    }
+
+    void Update()
+    {
+        if(_displayEnde)
+        {
+            CharacterSwitchManager.Instance.currentPlayer.canControl = false;
+
+            if(!_setPosition)
+            {
+                ball1.transform.position = goal1.transform.position;
+                ball2.transform.position = goal2.transform.position;
+                _setPosition = true;
+            }
         }
     }
 
