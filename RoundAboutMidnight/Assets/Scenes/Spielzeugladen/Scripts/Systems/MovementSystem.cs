@@ -4,10 +4,11 @@ using System.Collections;
 public class MovementSystem : MonoBehaviour
 {
     public static MovementSystem Instance;
-
     public GameObject mainCamera;
     public bool canControl, instantStop, isJumping;
     public int jumpCount = 0;
+
+    public Animation jumpAnim;
 
     private float tempX;
 
@@ -43,6 +44,7 @@ public class MovementSystem : MonoBehaviour
         {
             CharacterSwitchManager.Instance.currentPlayer.jumpCount++;
             CharacterSwitchManager.Instance.currentPlayer.playerRigidbody.velocity = new Vector3(CharacterSwitchManager.Instance.currentPlayer.playerRigidbody.velocity.x, CharacterSwitchManager.Instance.currentPlayer.jumpSpeed);
+            jumpAnim.Play();
         }
 
         if (Input.GetKey(KeyCode.D) || Input.GetKey(KeyCode.RightArrow))
