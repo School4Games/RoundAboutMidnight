@@ -1,14 +1,11 @@
 ﻿<Properties>
-  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\Scenes\Spielzeugladen\Scripts\Manager\PressLightTrigger.cs">
+  <MonoDevelop.Ide.Workspace />
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\Scenes\Spielzeugladen\Scripts\Systems\MovementSystem.cs">
     <Files>
-      <File FileName="Assets\Scenes\Spielzeugladen\Scripts\Manager\Collision_Manager.cs" Line="45" Column="69" />
-      <File FileName="Assets\Scenes\Spielzeugladen\Scripts\Manager\PressLightTrigger.cs" Line="19" Column="53" />
-      <File FileName="Assets\Scenes\Spielzeugladen\Scripts\Manager\TriggerManager.cs" Line="1" Column="1" />
-      <File FileName="Assets\Scenes\Spielzeugladen\Scripts\Manager\BallTriggerEnd.cs" Line="1" Column="1" />
-      <File FileName="Assets\Scenes\Spielzeugladen\Scripts\Systems\EmotionSystem.cs" Line="1" Column="1" />
-      <File FileName="Assets\Scenes\Spielzeugladen\Scripts\Manager\TrampolinManager.cs" Line="1" Column="1" />
-      <File FileName="Assets\Scenes\Spielzeugladen\Scripts\Manager\SaveCollectionManager.cs" Line="1" Column="1" />
+      <File FileName="Assets\Scenes\Spielzeugladen\Scripts\Systems\MovementSystem.cs" Line="47" Column="144" />
+      <File FileName="Assets\Scenes\Spielzeugladen\Scripts\Manager\CharacterSwitchManager.cs" Line="21" Column="1" />
+      <File FileName="Assets\Scenes\Spielzeugladen\Scripts\Systems\SmoothCameraMovementSystem.cs" Line="12" Column="1" />
+      <File FileName="Assets\Scenes\Spielzeugladen\Scripts\Systems\SaveSystemXML.cs" Line="10" Column="1" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>

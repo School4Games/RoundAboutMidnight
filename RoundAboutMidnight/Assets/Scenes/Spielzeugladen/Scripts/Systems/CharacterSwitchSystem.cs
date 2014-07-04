@@ -28,7 +28,7 @@ public class CharacterSwitchSystem : MonoBehaviour {
 
     void Start()
     {
-        StartCoroutine(ParticleBall1Wait());
+      //  StartCoroutine(ParticleBall1Wait());
         BallListGUI();
     }
 
@@ -61,23 +61,23 @@ public class CharacterSwitchSystem : MonoBehaviour {
     void HandleOnClickButton(WeaponWheelButton me)
     {
         CharacterSwitchManager.Instance.ChangeCurrentPlayer(Player.GetPlayerByName(me.name));
-        if(!currently_light)
-            StartCoroutine(ParticleBall1Wait());
+      //  if(!currently_light)
+          //  StartCoroutine(ParticleBall1Wait());
     }
 
     void HandleOnClickButton2(WeaponWheelButton me)
     {
         CharacterSwitchManager.Instance.ChangeCurrentPlayer(Player.GetPlayerByName(me.name));
-        if (!currently_light)
-            StartCoroutine(ParticleBall2Wait());
+       // if (!currently_light)
+            //StartCoroutine(ParticleBall2Wait());
     }
     void HandleOnClickButton3(WeaponWheelButton me)
     {
         if(EnableBalls.Instance.enableBall3)
         { 
             CharacterSwitchManager.Instance.ChangeCurrentPlayer(Player.GetPlayerByName(me.name));
-            if (!currently_light)
-                StartCoroutine(ParticleBall3Wait());
+           // if (!currently_light)
+            //    StartCoroutine(ParticleBall3Wait());
         }
         else
         {
@@ -86,7 +86,7 @@ public class CharacterSwitchSystem : MonoBehaviour {
             
         }
     }
-
+	/*
     IEnumerator ParticleBall2Wait()
     {
         particleBall2.Play();
@@ -111,7 +111,7 @@ public class CharacterSwitchSystem : MonoBehaviour {
         yield return new WaitForSeconds(1);
         particleBall1.Stop();
     }
-
+	*/
     void Update()
     {
         SwitchPlayersAlpha();
@@ -217,7 +217,7 @@ public class CharacterSwitchSystem : MonoBehaviour {
                     {
                         CharacterSwitchManager.Instance.ChangeCurrentPlayer(Player.GetPlayerByName("Ball 3"));
                         _currplayerID = 0;
-                        StartCoroutine(ParticleBall3Wait());
+                     //   StartCoroutine(ParticleBall3Wait());
                     }
                     else
                     {
@@ -241,7 +241,7 @@ public class CharacterSwitchSystem : MonoBehaviour {
                     {
                         CharacterSwitchManager.Instance.ChangeCurrentPlayer(Player.GetPlayerByName("Ball 3"));
                         _currplayerID -= 1;
-                        StartCoroutine(ParticleBall3Wait());
+                     //   StartCoroutine(ParticleBall3Wait());
                     }
                     else
                     {
@@ -273,19 +273,19 @@ public class CharacterSwitchSystem : MonoBehaviour {
         if (Input.GetKeyDown(KeyCode.Alpha1))
         {
             CharacterSwitchManager.Instance.ChangeCurrentPlayer(Player.GetPlayerByName("Ball 1"));
-            StartCoroutine(ParticleBall1Wait());
+          //  StartCoroutine(ParticleBall1Wait());
         }
         if (Input.GetKeyDown(KeyCode.Alpha2))
         {
             CharacterSwitchManager.Instance.ChangeCurrentPlayer(Player.GetPlayerByName("Ball 2"));
-            StartCoroutine(ParticleBall2Wait());
+           // StartCoroutine(ParticleBall2Wait());
         }
         if (Input.GetKeyDown(KeyCode.Alpha3))
         {
             if (EnableBalls.Instance.enableBall3)
             {
                 CharacterSwitchManager.Instance.ChangeCurrentPlayer(Player.GetPlayerByName("Ball 3"));
-                StartCoroutine(ParticleBall3Wait());
+              //  StartCoroutine(ParticleBall3Wait());
             }
             else
             {

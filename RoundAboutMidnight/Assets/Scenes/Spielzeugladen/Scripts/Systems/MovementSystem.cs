@@ -8,11 +8,12 @@ public class MovementSystem : MonoBehaviour
     public bool canControl, instantStop, isJumping;
     public int jumpCount = 0;
 
-    public Animation jumpAnim;
+    // public Animation jumpAnim;
 
     private float tempX;
 
     private Vector3 currentDirection, movement;
+	public Vector3 adForce = Vector3.down;
 
     public bool IsGrounded()
     {
@@ -42,15 +43,20 @@ public class MovementSystem : MonoBehaviour
 
         if (Input.GetKeyDown(KeyCode.Space) && CharacterSwitchManager.Instance.currentPlayer.jumpCount < CharacterSwitchManager.Instance.currentPlayer.maxJump || Input.GetKey(KeyCode.W) && CharacterSwitchManager.Instance.currentPlayer.jumpCount < CharacterSwitchManager.Instance.currentPlayer.maxJump || Input.GetKey(KeyCode.UpArrow) && CharacterSwitchManager.Instance.currentPlayer.jumpCount < CharacterSwitchManager.Instance.currentPlayer.maxJump)
         {
-            CharacterSwitchManager.Instance.currentPlayer.jumpCount++;
-            CharacterSwitchManager.Instance.currentPlayer.playerRigidbody.velocity = new Vector3(CharacterSwitchManager.Instance.currentPlayer.playerRigidbody.velocity.x, CharacterSwitchManager.Instance.currentPlayer.jumpSpeed);
-            jumpAnim.Play();
+			CharacterSwitchManager.Instance.currentPlayer.jumpCount+=1;
+			CharacterSwitchManager.Instance.currentPlayer.playerRigidbody.AddForce(Vector3.up * CharacterSwitchManager.Instance.currentPlayer.jumpSpeed);
+		/*	Vector3 jump = new Vector3(0,Mathf.Sqrt(-2 * 2 * 9.81f),0);
+			jump = -adForce.normalized * jump.magnitude;
+			CharacterSwitchManager.Instance.currentPlayer.playerRigidbody.AddForce(jump,ForceMode.VelocityChange);
+			float 
+			*/
+           	//jumpAnim.Play();
         }
 
         if (Input.GetKey(KeyCode.D) || Input.GetKey(KeyCode.RightArrow))
         {
             CharacterSwitchManager.Instance.currentPlayer.playerRigidbody.AddForce(Vector3.right * CharacterSwitchManager.Instance.currentPlayer.speed * Time.deltaTime);
-        }
+		}
 
         if (Input.GetKey(KeyCode.A) || Input.GetKey(KeyCode.LeftArrow))
         {

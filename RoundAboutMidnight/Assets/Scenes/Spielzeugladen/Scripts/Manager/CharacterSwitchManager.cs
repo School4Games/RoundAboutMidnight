@@ -18,7 +18,7 @@ public class CharacterSwitchManager : MonoBehaviour
             return;
 
         currentPlayer = p;
-        smoothCameraMovementScript.target = currentPlayer.playerTransform;
+        smoothCameraMovementScript.target= currentPlayer.playerTransform;
     }
 
     void Awake()

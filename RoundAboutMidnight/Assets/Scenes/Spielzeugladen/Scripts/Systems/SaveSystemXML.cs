@@ -5,6 +5,5 @@ using System.Xml.Serialization;
 
 public class SaveSystemXML : MonoBehaviour {
 
-    [XmlAttribute("name")]
-    public string name;
+
 }
