@@ -1,0 +1,41 @@
+﻿using UnityEngine;
+using System.Collections;
+
+public class Movement : MonoBehaviour {
+
+    //Spieler Stats
+    public string pName;
+    public int pSpeed;
+    public int pJumpSpeed;
+
+    public bool IsGrounded(){
+        // Befindet sich der Spieler auf einem anderen Objekt 
+        // Wenn ja IsGrounded = true - Else (False)
+        return Physics.Raycast(this.transform.position, -Vector3.up,this.collider.bounds.extents.y + 0.01f);
+    }
+
+    public void FixedUpdate(){
+
+        //Abfragen ob die taste D oder RightArrow gedrückt werden
+        if (Input.GetKey(KeyCode.D) || Input.GetKey(KeyCode.RightArrow)){
+            //Wenn ja dann den Spieler nach rechts bewegen
+            this.rigidbody.AddForce(Vector3.right * pSpeed * Time.deltaTime);
+        }
+
+        //Abfragen ob die taste A oder LeftArrow gedrückt werden
+        if (Input.GetKey(KeyCode.A) || Input.GetKey(KeyCode.LeftArrow)){
+            // Wenn ja dann den Spieler nach Links bewegen
+            this.rigidbody.AddForce(Vector3.right * -pSpeed * Time.deltaTime);
+        }
+
+        //Wenn der Spieler sich auf dem Boden befindet dann
+        if (IsGrounded()){
+            //Wenn der Spieler sich auf dem Boden befindet und Space Taste betätigt
+            if (Input.GetKey(KeyCode.Space)){
+                //Dann verändert sich der Y Wert des Spielers
+                this.rigidbody.velocity = new Vector3(0, pJumpSpeed, 0);
+            }
+        }
+    }
+}
+
