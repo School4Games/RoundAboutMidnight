@@ -15,8 +15,8 @@ public class Movement : MonoBehaviour {
 
     //Spieler Stats
     public string pName;
-    public int pSpeed;
-    public int pJumpSpeed;
+    public float pSpeed;
+    public float pJumpSpeed;
 
     public bool IsGrounded(){
         // Befindet sich der Spieler auf einem anderen Objekt 
