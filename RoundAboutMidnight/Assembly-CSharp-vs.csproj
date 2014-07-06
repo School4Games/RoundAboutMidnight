@@ -47,7 +47,7 @@
   </ItemGroup>
   <ItemGroup>
      <Compile Include="Assets\Interface.cs" />
-     <Compile Include="Assets\PrototypeMS04\Scripts\Manager\Ball1Collisions.cs" />
+     <Compile Include="Assets\PrototypeMS04\Scripts\Player\Ball1Collisions.cs" />
      <Compile Include="Assets\PrototypeMS04\Scripts\Player\Movement.cs" />
      <Compile Include="Assets\PrototypeMS04\Scripts\Systems\CameraSystem.cs" />
      <Compile Include="Assets\PrototypeMS04\Scripts\Systems\CharacterSwitchSyst.cs" />

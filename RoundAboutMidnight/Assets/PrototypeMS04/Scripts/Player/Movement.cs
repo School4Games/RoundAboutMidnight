@@ -1,4 +1,14 @@
-﻿using UnityEngine;
+﻿/*
+ * 
+ *  Auf jeden Spieler bzw. auf jeden unserer Bälle muss das Movement Script angehangen werden
+ *  Achte bitte darauf das auf dem Managerobjekt in der Scene auch jeweils die Anzahl an Bälle 
+ *  vorhanden sind wie auch Bälle im Spiel sein sollen
+ *  
+ *  Außerdem muss für jeden Ball (Ball1Collisions) für Ball 1 noch hinzugefügt werden.
+ * 
+ * */
+
+using UnityEngine;
 using System.Collections;
 
 public class Movement : MonoBehaviour {
@@ -12,6 +22,10 @@ public class Movement : MonoBehaviour {
         // Befindet sich der Spieler auf einem anderen Objekt 
         // Wenn ja IsGrounded = true - Else (False)
         return Physics.Raycast(this.transform.position, -Vector3.up,this.collider.bounds.extents.y + 0.01f);
+    }
+
+    public void Update(){
+        
     }
 
     public void FixedUpdate(){
