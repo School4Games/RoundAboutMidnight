@@ -17,6 +17,7 @@ public class Movement : MonoBehaviour {
     public string pName;
     public float pSpeed;
     public float pJumpSpeed;
+	public bool CanControl;
 
     public bool IsGrounded(){
         // Befindet sich der Spieler auf einem anderen Objekt 
@@ -29,7 +30,7 @@ public class Movement : MonoBehaviour {
     }
 
     public void FixedUpdate(){
-
+		if(CanControl){
         //Abfragen ob die taste D oder RightArrow gedrückt werden
         if (Input.GetKey(KeyCode.D) || Input.GetKey(KeyCode.RightArrow)){
             //Wenn ja dann den Spieler nach rechts bewegen
@@ -51,5 +52,6 @@ public class Movement : MonoBehaviour {
             }
         }
     }
+}
 }
 

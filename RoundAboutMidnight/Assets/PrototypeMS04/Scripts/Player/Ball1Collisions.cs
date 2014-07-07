@@ -17,7 +17,7 @@ public class Ball1Collisions : MonoBehaviour {
     void Update()
     {
         if(movecar){
-            car.transform.position = Vector3.Lerp(car.transform.position, endcarpoint.transform.position, Time.deltaTime * 0.2f);
+            car.transform.position = Vector3.Lerp(car.transform.position, endcarpoint.transform.position, Time.deltaTime * 1f);
             movecarobject.rigidbody.mass = 0.01f;
         }
     }
