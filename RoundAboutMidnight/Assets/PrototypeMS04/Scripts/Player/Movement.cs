@@ -18,6 +18,7 @@ public class Movement : MonoBehaviour {
     public float pSpeed;
     public float pJumpSpeed;
 	public bool CanControl;
+	public Camera introCamera;
 
     public bool IsGrounded(){
         // Befindet sich der Spieler auf einem anderen Objekt 
@@ -26,7 +27,12 @@ public class Movement : MonoBehaviour {
     }
 
     public void Update(){
-        
+
+		if(introCamera.enabled == true){
+			CanControl = false;
+		}else{
+			CanControl = true;
+		}
     }
 
     public void FixedUpdate(){

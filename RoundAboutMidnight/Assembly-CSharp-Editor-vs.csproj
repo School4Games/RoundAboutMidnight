@@ -50,6 +50,7 @@
      <Compile Include="Assets\iTweenEditor\Editor\iTweenPathEditor.cs" />
      <None Include="Assets\Scenes\Spielzeugladen\Skyboxes\_skybox info.txt" />
      <None Include="Assets\iTweenEditor\README.txt" />
+     <None Include="Assets\PrototypeMS04\Mesh\Texture\Materials\Materials\Backfaceculling.shader" />
  <Reference Include="UnityEditor.Graphs">
  <HintPath>C:\Program Files (x86)\Unity\Editor\Data\Managed\UnityEditor.Graphs.dll</HintPath>
  </Reference>

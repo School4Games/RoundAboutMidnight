@@ -93,6 +93,7 @@
      <Compile Include="Assets\iTweenEditor\iTweenPath.cs" />
      <None Include="Assets\Scenes\Spielzeugladen\Skyboxes\_skybox info.txt" />
      <None Include="Assets\iTweenEditor\README.txt" />
+     <None Include="Assets\PrototypeMS04\Mesh\Texture\Materials\Materials\Backfaceculling.shader" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

@@ -29,7 +29,7 @@ public class CamerIntro : MonoBehaviour {
     {
         if (!displayIntroText)
             return;
-
+		GUI.Label(new Rect(Screen.width / 2 + 450, Screen.height -75, 150, 50 ),"Press 2 to Skip",introFontStyle);
         GUI.Label(new Rect(Screen.width / 2 - 75, Screen.height - 75, 150, 50), "Gleich gehts los ... ", introFontStyle);
     }
 }

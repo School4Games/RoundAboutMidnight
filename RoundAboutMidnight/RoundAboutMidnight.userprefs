@@ -1,8 +1,9 @@
 ﻿<Properties>
-  <MonoDevelop.Ide.Workspace />
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\PrototypeMS04\Scripts\Systems\CameraRotatechange.cs">
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\PrototypeMS04\Mesh\Texture\Materials\Materials\Backfaceculling.shader">
     <Files>
-      <File FileName="Assets\PrototypeMS04\Scripts\Systems\CameraRotatechange.cs" Line="6" Column="1" />
+      <File FileName="Assets\PrototypeMS04\Scripts\Player\Ball1Collisions.cs" Line="21" Column="50" />
+      <File FileName="Assets\PrototypeMS04\Mesh\Texture\Materials\Materials\Backfaceculling.shader" Line="1" Column="34" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
