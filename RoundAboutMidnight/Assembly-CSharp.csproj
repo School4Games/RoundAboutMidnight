@@ -55,6 +55,8 @@
      <Compile Include="Assets\PrototypeMS04\Scripts\Systems\CamerIntro.cs" />
      <Compile Include="Assets\PrototypeMS04\Scripts\Systems\CameraSystem.cs" />
      <Compile Include="Assets\PrototypeMS04\Scripts\Systems\CharacterSwitchSyst.cs" />
+     <Compile Include="Assets\PrototypeMS04\Scripts\Systems\Loadingscreen.cs" />
+     <Compile Include="Assets\PrototypeMS04\Scripts\Systems\Modulsystem.cs" />
      <Compile Include="Assets\Scenes\Spielzeugladen\Scripts\GUI\CheatConsoleGUI.cs" />
      <Compile Include="Assets\Scenes\Spielzeugladen\Scripts\Manager\AnimationManager.cs" />
      <Compile Include="Assets\Scenes\Spielzeugladen\Scripts\Manager\BallTriggerEnd.cs" />
