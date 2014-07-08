@@ -13,6 +13,8 @@ using System.Collections;
 
 public class Movement : MonoBehaviour {
 
+	public static Movement Instance;
+
     //Spieler Stats
     public string pName;
     public float pSpeed;
@@ -26,8 +28,17 @@ public class Movement : MonoBehaviour {
         return Physics.Raycast(this.transform.position, -Vector3.up,this.collider.bounds.extents.y + 0.01f);
     }
 
-    public void Update(){
+	void Awake()
+	{
+		Instance = this;
+	}
 
+    public void Update(){
+		if(EndScene.Instance.CanControl == false) // Update methode ( singleton)
+		{
+			CanControl = false; // movement = false
+			return;
+		}
 		if(introCamera.enabled == true){
 			CanControl = false;
 		}else{
@@ -36,6 +47,9 @@ public class Movement : MonoBehaviour {
     }
 
     public void FixedUpdate(){
+	
+
+
 		if(CanControl){
         //Abfragen ob die taste D oder RightArrow gedrückt werden
         if (Input.GetKey(KeyCode.D) || Input.GetKey(KeyCode.RightArrow)){

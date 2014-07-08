@@ -4,7 +4,7 @@ using System.Collections;
 
 public class Loadingscreen : MonoBehaviour {
 	private bool loading = true;
-	
+
 	public Texture loadingTexture;
 	
 	void Update () {
