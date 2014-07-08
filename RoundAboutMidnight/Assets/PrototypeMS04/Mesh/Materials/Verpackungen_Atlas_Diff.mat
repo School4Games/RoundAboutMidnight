@@ -31,7 +31,7 @@ Material:
       data:
         first:
           name: _Cutoff
-        second: 0
+        second: .535714269
       data:
         first:
           name: _Shininess
