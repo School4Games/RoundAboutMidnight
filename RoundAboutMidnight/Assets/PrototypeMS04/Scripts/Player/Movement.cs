@@ -21,6 +21,10 @@ public class Movement : MonoBehaviour {
     public float pJumpSpeed;
 	public bool CanControl;
 	public Camera introCamera;
+	public GameObject Auto;
+	private Rigidbody rb;
+
+
 
     public bool IsGrounded(){
         // Befindet sich der Spieler auf einem anderen Objekt 
@@ -34,6 +38,25 @@ public class Movement : MonoBehaviour {
 	}
 
     public void Update(){
+		introCamera = GameObject.Find("c1Intro").camera;
+		Auto = GameObject.FindGameObjectWithTag("Auto");
+
+		if(gameObject.rigidbody == null){
+		rb = gameObject.AddComponent("Rigidbody") as Rigidbody;
+		//Add rigidbody if it not exits
+			Debug.Log("Success");
+		}
+
+		if(this.tag == "Baseball"){
+			pSpeed = 8f;
+			pJumpSpeed = 1.2f;
+			rigidbody.constraints = RigidbodyConstraints.FreezePositionZ; 
+		}
+
+	Physics.IgnoreCollision(this.collider,Auto.collider);
+
+
+
 		if(EndScene.Instance.CanControl == false) // Update methode ( singleton)
 		{
 			CanControl = false; // movement = false
@@ -71,6 +94,7 @@ public class Movement : MonoBehaviour {
                 this.rigidbody.velocity = new Vector3(0, pJumpSpeed, 0);
             }
         }
+
     }
 }
 }

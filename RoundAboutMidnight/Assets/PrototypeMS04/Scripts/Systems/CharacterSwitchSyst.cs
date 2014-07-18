@@ -49,7 +49,7 @@ public class CharacterSwitchSyst : MonoBehaviour
             else
             {
                 // Wenn das nicht der Fall ist dann wird das Movementscript deaktiviert
-                balls[i].GetComponent<Movement>().enabled = false;
+             balls[i].GetComponent<Movement>().enabled = false;
             }
         }
     }
