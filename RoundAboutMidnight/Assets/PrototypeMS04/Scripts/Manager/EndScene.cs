@@ -14,18 +14,27 @@ public class EndScene : MonoBehaviour {
 
 	void OnTriggerEnter(Collider other)
     {
-        if(other.CompareTag("Untagged"))
+        if(other.CompareTag("Player"))
         {
 			CanControl = false;
+
+
 			StartCoroutine(WaitForShowEndscreen());
 			// Nene das funktioniert ja er lädt ja die scene   
 			Debug.Log("Nigger Come on"+CanControl);
-        }
+		
+		}
     }
+
+	void LateUpdate(){
+	
+
+	}
 
 	IEnumerator WaitForShowEndscreen()
 	{
 		yield return new WaitForSeconds(3);
-		Application.LoadLevel("menu");
+	
+	Application.LoadLevel("menu");
 	}
 }

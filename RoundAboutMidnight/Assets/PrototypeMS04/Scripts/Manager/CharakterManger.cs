@@ -16,12 +16,11 @@ public class CharakterManger : MonoBehaviour {
 	void Update () {
 		if(Input.GetKeyDown("e")){
 			Charaktersnum += 1;
-			Switcher();
 		}
 		if(Input.GetKeyDown("q")){
 			Charaktersnum -= 1;
-			Switcher();
 		}
+		Switcher();
 	}
 
 	void Switcher(){
@@ -31,7 +30,6 @@ public class CharakterManger : MonoBehaviour {
 
 			Player2.GetComponent<Movement>().enabled = false;
 			//Player 1
-			print("Spieler 1 ");
 		}
 
 		if(Charaktersnum == 2 && Baseavabile){
@@ -41,9 +39,6 @@ public class CharakterManger : MonoBehaviour {
 			Player2.GetComponent<Movement>().enabled = true;
 			CameraSystem.Instance.cTarget = Player2.transform;
 			//Player 2
-			print ("Spieler 2");
-		}else{
-			Charaktersnum = 1;
 		}
 
 		if(Charaktersnum >= 3){

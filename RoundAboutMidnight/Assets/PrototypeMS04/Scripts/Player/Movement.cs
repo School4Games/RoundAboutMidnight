@@ -22,6 +22,7 @@ public class Movement : MonoBehaviour {
 	public bool CanControl;
 	public Camera introCamera;
 	public GameObject Auto;
+	public float Raylenght;
 	private Rigidbody rb;
 
 
@@ -29,11 +30,15 @@ public class Movement : MonoBehaviour {
     public bool IsGrounded(){
         // Befindet sich der Spieler auf einem anderen Objekt 
         // Wenn ja IsGrounded = true - Else (False)
-        return Physics.Raycast(this.transform.position, -Vector3.up,this.collider.bounds.extents.y + 0.01f);
+        return Physics.Raycast(this.transform.position, -Vector3.up,this.collider.bounds.extents.y + Raylenght);
     }
 
 	void Awake()
 	{
+		if(this.transform.tag == "Baseball"){
+			Raylenght = 0.05f;
+		}
+
 		Instance = this;
 	}
 
