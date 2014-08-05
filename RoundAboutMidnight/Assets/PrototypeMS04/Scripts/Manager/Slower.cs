@@ -27,10 +27,18 @@ public class Slower : MonoBehaviour {
 		if(other.tag == "Baseball" && GotComponent == false){
 			Manager.GetComponent<CharakterManger>().Baseavabile = true;
 			Baseball.AddComponent<Movement>();
-			Baseball.GetComponent<Movement>().enabled = false;;
+			Baseball.GetComponent<Movement>().enabled = false;
+			Baseball.rigidbody.constraints = RigidbodyConstraints.FreezePositionZ; 
+			Baseball.rigidbody.mass = 0.2f;
+			Baseball.rigidbody.angularDrag = 1;
 			GotComponent = true;
 			Debug.Log("Baseball aktiv");
-			Baseball.transform.position = Startposbb.transform.position;
+			//Baseball.transform.position = Startposbb.transform.position;
+			StartCoroutine(Waitforfps());
 		}
+	}
+	IEnumerator Waitforfps(){
+		yield return new WaitForSeconds(2);
+		Baseball.transform.position = Startposbb.transform.position;
 	}
 }

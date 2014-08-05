@@ -24,6 +24,7 @@ public class Movement : MonoBehaviour {
 	public GameObject Auto;
 	public float Raylenght;
 	private Rigidbody rb;
+	private int Counter;
 
 
 
@@ -35,8 +36,15 @@ public class Movement : MonoBehaviour {
 
 	void Awake()
 	{
+		if(gameObject.rigidbody == null){
+			rb = gameObject.AddComponent("Rigidbody") as Rigidbody;
+			//Add rigidbody if it not exits
+			Debug.Log("Success");
+		}
+
+		//GetComponent<Ball1Collisions>().CanControl =false;
 		if(this.transform.tag == "Baseball"){
-			Raylenght = 0.05f;
+			Raylenght = 0.03f;
 		}
 
 		Instance = this;
@@ -53,17 +61,21 @@ public class Movement : MonoBehaviour {
 		}
 
 		if(this.tag == "Baseball"){
-			pSpeed = 8f;
-			pJumpSpeed = 1.2f;
-			rigidbody.constraints = RigidbodyConstraints.FreezePositionZ; 
+			pSpeed = 6f;
+			pJumpSpeed = 1f;
+		}
+		if(Auto){
+	Physics.IgnoreCollision(this.collider,Auto.collider);
 		}
 
-	Physics.IgnoreCollision(this.collider,Auto.collider);
+		if(Ball1Collisions.Instance.CanControl == false && Counter == 0){
+			Counter += 1;
+		}
 
-
-
-		if(EndScene.Instance.CanControl == false) // Update methode ( singleton)
+		if(EndScene.Instance.CanControl == false || Ball1Collisions.Instance.CanControl == false && Counter == 0) 
 		{
+			Debug.Log("Not Playable");
+			EmotionManager.Instance._Emo2 = false;
 			CanControl = false; // movement = false
 			return;
 		}
@@ -94,7 +106,7 @@ public class Movement : MonoBehaviour {
         //Wenn der Spieler sich auf dem Boden befindet dann
         if (IsGrounded()){
             //Wenn der Spieler sich auf dem Boden befindet und Space Taste betätigt
-            if (Input.GetKey(KeyCode.Space)){
+				if (Input.GetKey(KeyCode.Space)||Input.GetKey("w")){
                 //Dann verändert sich der Y Wert des Spielers
                 this.rigidbody.velocity = new Vector3(0, pJumpSpeed, 0);
             }

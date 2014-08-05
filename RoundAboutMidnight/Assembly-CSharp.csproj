@@ -5,7 +5,7 @@
 	<Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
 	<ProductVersion>10.0.20506</ProductVersion>
 	<SchemaVersion>2.0</SchemaVersion>
-	<ProjectGuid>{ABF2EC91-9A77-C9B5-87FE-009CC330194D}</ProjectGuid>
+	<ProjectGuid>{3945C978-D978-461C-F6D4-CDE5FF833E3D}</ProjectGuid>
 	<OutputType>Library</OutputType>
 	<AppDesignerFolder>Properties</AppDesignerFolder>
 	<RootNamespace></RootNamespace>
@@ -50,7 +50,9 @@
      <Compile Include="Assets\PrototypeMS04\Scripts\GUI\Loading1.cs" />
      <Compile Include="Assets\PrototypeMS04\Scripts\GUI\iInterface.cs" />
      <Compile Include="Assets\PrototypeMS04\Scripts\Manager\CharakterManger.cs" />
+     <Compile Include="Assets\PrototypeMS04\Scripts\Manager\EmotionManager.cs" />
      <Compile Include="Assets\PrototypeMS04\Scripts\Manager\EndScene.cs" />
+     <Compile Include="Assets\PrototypeMS04\Scripts\Manager\FlummiShow.cs" />
      <Compile Include="Assets\PrototypeMS04\Scripts\Manager\IntroEndpoint.cs" />
      <Compile Include="Assets\PrototypeMS04\Scripts\Manager\KranManager.cs" />
      <Compile Include="Assets\PrototypeMS04\Scripts\Manager\LevelManager.cs" />

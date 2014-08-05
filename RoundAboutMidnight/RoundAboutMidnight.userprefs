@@ -1,11 +1,14 @@
 ﻿<Properties>
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\PrototypeMS04\Scripts\Player\Movement.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\PrototypeMS04\Scripts\Manager\CharakterManger.cs">
     <Files>
-      <File FileName="Assets\PrototypeMS04\Scripts\Manager\Versobj.cs" Line="9" Column="36" />
-      <File FileName="Assets\PrototypeMS04\Scripts\Manager\KranManager.cs" Line="1" Column="1" />
-      <File FileName="Assets\PrototypeMS04\Scripts\Player\Movement.cs" Line="38" Column="37" />
-      <File FileName="Assets\PrototypeMS04\Scripts\Manager\EndScene.cs" Line="22" Column="4" />
+      <File FileName="Assets\PrototypeMS04\Scripts\Manager\Slower.cs" Line="41" Column="36" />
+      <File FileName="Assets\PrototypeMS04\Scripts\Player\Movement.cs" Line="75" Column="104" />
+      <File FileName="Assets\PrototypeMS04\Scripts\Manager\EndScene.cs" Line="21" Column="42" />
+      <File FileName="Assets\PrototypeMS04\Scripts\Manager\EmotionManager.cs" Line="9" Column="26" />
+      <File FileName="Assets\PrototypeMS04\Scripts\Player\Ball1Collisions.cs" Line="42" Column="39" />
+      <File FileName="Assets\PrototypeMS04\Scripts\Manager\CharakterManger.cs" Line="16" Column="21" />
+      <File FileName="Assets\PrototypeMS04\Scripts\Manager\Slower.cs" Line="41" Column="36" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>

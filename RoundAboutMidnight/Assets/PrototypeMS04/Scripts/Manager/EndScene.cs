@@ -4,7 +4,7 @@ using System.Collections;
 public class EndScene : MonoBehaviour {
 
 	public static EndScene Instance; // unser script (Singleton)
-	public bool CanControl = true; // neue variable 
+	public bool CanControl = false; // neue variable 
 
 	void Awake()
 	{
@@ -14,12 +14,13 @@ public class EndScene : MonoBehaviour {
 
 	void OnTriggerEnter(Collider other)
     {
-        if(other.CompareTag("Player"))
+        if(other.CompareTag("Player") )
         {
-			CanControl = false;
-
-
-			StartCoroutine(WaitForShowEndscreen());
+			//CanControl = false;
+			CharakterManger.Instance.Charaktersnum =2;
+			CharakterManger.Instance.Controllof2 = false;
+			CharakterManger.Instance.Waitforanimation = false;
+			//StartCoroutine(WaitForShowEndscreen());
 			// Nene das funktioniert ja er lädt ja die scene   
 			Debug.Log("Nigger Come on"+CanControl);
 		

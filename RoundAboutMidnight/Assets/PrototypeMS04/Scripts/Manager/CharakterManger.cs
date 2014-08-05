@@ -2,26 +2,35 @@
 using System.Collections;
 
 public class CharakterManger : MonoBehaviour {
+
+	public static CharakterManger Instance;
+	public bool Controllof2;
 	public int Charaktersnum;
 	public bool Baseavabile;
 	public GameObject Player1;
 	public GameObject Player2;
+	public bool Waitforanimation;
 	// Use this for initialization
-	void Start () {
-
-	
+	void Awake() {
+		 Instance = this;
+		Charaktersnum = 1;
 	}
 	
 	// Update is called once per frame
 	void Update () {
+		if(Controllof2){
 		if(Input.GetKeyDown("e")){
 			Charaktersnum += 1;
 		}
 		if(Input.GetKeyDown("q")){
 			Charaktersnum -= 1;
 		}
-		Switcher();
+		}
+		if(Waitforanimation){
+			Switcher();
+		}
 	}
+
 
 	void Switcher(){
 		if(Charaktersnum == 1){

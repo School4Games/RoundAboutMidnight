@@ -7,6 +7,7 @@ public class KranManager : MonoBehaviour {
 	public GameObject Goal;
 	public bool Kranan = false;
 	public GameObject Buttonkran;
+	public GameObject Schalter;
 	// Use this for initialization
 	void Start () {
 	
@@ -20,9 +21,10 @@ public class KranManager : MonoBehaviour {
 			}
 		}
 	}
-	void OnCollisionEnter(Collision col){
+	void OnTriggerEnter(Collider other){
 		Debug.Log("Crash");
-		if(col.gameObject.tag == "Player"){
+		if(other.gameObject.tag == "Player"){
+			Schalter.transform.Rotate(Schalter.transform.rotation.x,-42f,Schalter.transform.rotation.z);
 			Kranan = true;
 			Debug.Log("Kran aktiv");
 		}
